@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS Machine Learning: CPU vs GPU Analysis",
+    "Description": "AWS Machine Learning: MXNet Neural Style Transfer",
     "Parameters": {
         "Region": {
             "Type": "String",
@@ -92,7 +92,7 @@
                 "Path": "/",
                 "Policies": [
                     {
-                        "PolicyName": "Ec2-Read-Only",
+                        "PolicyName": "Ec2-Read-And-CloudWatch-Logs",
                         "PolicyDocument": {
                             "Version": "2012-10-17",
                             "Statement": [
@@ -108,6 +108,16 @@
                                             "ec2:Region": "us-west-2"
                                         }
                                     }
+                                },
+                                {
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents",
+                                        "logs:DescribeLogStreams"
+                                    ],
+                                    "Resource": "arn:aws:logs:*:*:*",
+                                    "Effect": "Allow"
                                 }
                             ]
                         }
@@ -120,7 +130,9 @@
             "Properties": {
                 "Path": "/",
                 "Roles": [
-                    "Ec2Role"
+                    {
+                        "Ref": "Ec2Role"
+                    }
                 ]
             }
         },
@@ -258,6 +270,18 @@
                                             "ec2:Region": "us-west-2"
                                         }
                                     }
+                                },
+                                {
+                                    "Action": [
+                                        "cloudwatch:getMetricData",
+                                        "cloudwatch:listMetrics",
+                                        "logs:Describe*",
+                                        "logs:Get*",
+                                        "logs:TestMetricFilter",
+                                        "logs:FilterLogEvents"
+                                    ],
+                                    "Resource": "*",
+                                    "Effect": "Allow"
                                 }
                             ]
                         }
