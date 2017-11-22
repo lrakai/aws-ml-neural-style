@@ -74,10 +74,9 @@
                             "",
                             [
                                 "#!/bin/bash -xe\n",
-                                "mkdir -p /home/ubuntu/src/mxnet/example/neural-style\n",
                                 "cd /home/ubuntu/src/mxnet/example/neural-style\n",
-                                "wget https://raw.githubusercontent.com/apache/incubator-mxnet/master/example/neural-style/find_mxnet.py\n",
-                                "wget https://raw.githubusercontent.com/apache/incubator-mxnet/master/example/neural-style/nstyle.py\n"
+                                "bash download.sh\n",
+                                "chown -R ubuntu:ubuntu /home/ubuntu/src/mxnet/example/neural-style\n"
                             ]
                         ]
                     }
