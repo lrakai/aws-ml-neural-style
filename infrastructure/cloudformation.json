@@ -40,7 +40,7 @@
                         "AZ"
                     ]
                 },
-                "ImageId": "ami-f1e73689",
+                "ImageId": "ami-b8c807c0",
                 "IamInstanceProfile": {
                     "Ref": "Ec2InstanceProfile"
                 },
@@ -67,7 +67,21 @@
                             ]
                         }
                     }
-                ]
+                ],
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "",
+                            [
+                                "#!/bin/bash -xe\n",
+                                "mkdir -p /home/ubuntu/src/mxnet/example/neural-style\n",
+                                "cd /home/ubuntu/src/mxnet/example/neural-style\n",
+                                "wget https://raw.githubusercontent.com/apache/incubator-mxnet/master/example/neural-style/find_mxnet.py\n",
+                                "wget https://raw.githubusercontent.com/apache/incubator-mxnet/master/example/neural-style/nstyle.py\n"
+                            ]
+                        ]
+                    }
+                }
             }
         },
         "Ec2Role": {
