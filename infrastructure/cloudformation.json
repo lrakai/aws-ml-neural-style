@@ -77,7 +77,11 @@
                                 "#!/bin/bash -xe\n",
                                 "cd /home/ubuntu/src/mxnet/example/neural-style\n",
                                 "bash download.sh\n",
-                                "chown -R ubuntu:ubuntu /home/ubuntu/src/mxnet/example/neural-style\n"
+                                "chown -R ubuntu:ubuntu /home/ubuntu/src/mxnet/example/neural-style\n",
+                                "mkdir /home/ubuntu/bin\n",
+                                "cd /home/ubuntu/bin\n",
+                                "wget https://s3.amazonaws.com/aws-bigdata-blog/artifacts/GPUMonitoring/gpumon.py",
+                                "chown -R ubuntu:ubuntu /home/ubuntu/bin\n"
                             ]
                         ]
                     }
