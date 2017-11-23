@@ -80,7 +80,7 @@
                                 "chown -R ubuntu:ubuntu /home/ubuntu/src/mxnet/example/neural-style\n",
                                 "mkdir /home/ubuntu/bin\n",
                                 "cd /home/ubuntu/bin\n",
-                                "wget https://s3.amazonaws.com/aws-bigdata-blog/artifacts/GPUMonitoring/gpumon.py",
+                                "wget https://s3.amazonaws.com/aws-bigdata-blog/artifacts/GPUMonitoring/gpumon.py\n",
                                 "chown -R ubuntu:ubuntu /home/ubuntu/bin\n"
                             ]
                         ]
