@@ -110,7 +110,7 @@
                 "Path": "/",
                 "Policies": [
                     {
-                        "PolicyName": "Ec2-Read-And-CloudWatch-Logs",
+                        "PolicyName": "Ec2-Read-And-CloudWatch-Put-Metric",
                         "PolicyDocument": {
                             "Version": "2012-10-17",
                             "Statement": [
@@ -129,9 +129,9 @@
                                 },
                                 {
                                     "Action": [
-                                        "logs:PutMetricData"
+                                        "cloudwatch:PutMetricData"
                                     ],
-                                    "Resource": "arn:aws:logs:*:*:*",
+                                    "Resource": "*",
                                     "Effect": "Allow"
                                 }
                             ]
